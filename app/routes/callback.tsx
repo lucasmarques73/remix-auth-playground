@@ -10,6 +10,7 @@ export const loader: LoaderFunction = async ({ request }) => {
       throwOnError: true,
     });
   } catch (error) {
+    console.log({ error });
     return redirect("/");
   }
 };
