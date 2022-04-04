@@ -1,16 +1,10 @@
-import { LoaderFunction, redirect } from "remix";
+import type { LoaderFunction } from "@remix-run/node";
 
 import { auth } from "~/services/auth.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
-  try {
-    return await auth.authenticate("auth0", request, {
-      successRedirect: "/private",
-      failureRedirect: "/",
-      throwOnError: true,
-    });
-  } catch (error) {
-    console.log({ error });
-    return redirect("/");
-  }
+  return auth.authenticate("auth0", request, {
+    successRedirect: "/app",
+    failureRedirect: "/",
+  });
 };

@@ -43,7 +43,6 @@ const auth0Strategy = new Auth0Strategy(
     //
     // Use the returned information to process or write to the DB.
     //
-    console.log({ profile });
     return profile;
   }
 );

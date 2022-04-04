@@ -5,19 +5,23 @@ import { auth, getSession } from "~/services/auth.server";
 
 type LoaderData = {
   error: { message: string } | null;
+  isAuthenticated: boolean;
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
-  await auth.isAuthenticated(request, { successRedirect: "/private" });
+  const profile = await auth.isAuthenticated(request, {
+    successRedirect: "/app",
+  });
   const session = await getSession(request.headers.get("Cookie"));
   const error = session.get(auth.sessionErrorKey) as LoaderData["error"];
-  return json<LoaderData>({ error });
+  return json<LoaderData>({ error, isAuthenticated: !!profile });
 };
 
 export default function Index() {
-  const { error } = useLoaderData<LoaderData>();
+  const { error, isAuthenticated } = useLoaderData<LoaderData>();
+  console.log({ error, isAuthenticated });
   return (
-    <Layout>
+    <Layout isAuthenticated={isAuthenticated}>
       {error ? <div>{error.message}</div> : null}
       <Home />
     </Layout>
