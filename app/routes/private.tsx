@@ -1,5 +1,5 @@
-import type { LoaderFunction } from "remix";
-import { Form, useLoaderData } from "remix";
+import { LoaderFunction, useLoaderData } from "remix";
+import { Layout } from "~/components/Layout";
 import { AuthLoaderData, isAuthenticated } from "~/services/auth.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -9,16 +9,10 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function Screen() {
   const { profile } = useLoaderData<AuthLoaderData>();
   return (
-    <>
-      <Form method="post" action="/logout">
-        <button>Log Out</button>
-      </Form>
-
-      <hr />
-
+    <Layout isAuthenticated={!!profile}>
       <pre>
         <code>{JSON.stringify(profile, null, 2)}</code>
       </pre>
-    </>
+    </Layout>
   );
 }
