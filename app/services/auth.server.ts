@@ -23,12 +23,26 @@ const sessionStorage = createCookieSessionStorage({
 
 export const auth = new Authenticator<Auth0Profile>(sessionStorage);
 
-export type AuthLoaderData = { profile: Auth0Profile };
+export interface AuthProfile {
+  name: string;
+  email: string;
+  avatar: string;
+}
+
+export type AuthLoaderData = { profile: AuthProfile };
+
 export const isAuthenticated = async (request: globalThis.Request) => {
-  const profile = await auth.isAuthenticated(request, {
+  const auth0Profile = await auth.isAuthenticated(request, {
     failureRedirect: "/",
   });
 
+  const profile = {
+    name: auth0Profile._json.nickname,
+    email: auth0Profile.emails[0].value,
+    avatar: auth0Profile.photos[0].value,
+  };
+
+  console.log(JSON.stringify({ profile }, null, 2));
   return json<AuthLoaderData>({ profile });
 };
 
@@ -43,6 +57,7 @@ const auth0Strategy = new Auth0Strategy(
     //
     // Use the returned information to process or write to the DB.
     //
+
     return profile;
   }
 );
