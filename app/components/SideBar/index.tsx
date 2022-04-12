@@ -10,7 +10,7 @@ export function SideBar() {
   const { profile } = useLoaderData<AuthLoaderData>();
   return (
 
-      <div className="w-60 h-full border-r-2 shadow-md bg-white ">
+      <div className="w-60 h-full border-r-2 shadow-md bg-white invisible md:visible ">
         <div className="pt-4 pb-2 px-6">
           <Link to="/app">
             <div className="flex items-center">
