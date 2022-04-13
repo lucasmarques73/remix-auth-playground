@@ -31,24 +31,24 @@ export function SideBar() {
         </div>
         <ul className="px-1">
           <li className="relative">
-            <a
+            <Link
               className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-900 text-ellipsis whitespace-nowrap rounded hover:text-sky-700 hover:bg-blue-50 transition duration-300 ease-in-out"
-              href="#!"
               data-mdb-ripple="true"
               data-mdb-ripple-color="primary"
+              to={'workouts'}
             >
               Gerenciar Treinos
-            </a>
+            </Link>
           </li>
           <li className="relative">
-            <a
+            <Link
               className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-900 text-ellipsis whitespace-nowrap rounded hover:text-sky-700 hover:bg-blue-50 transition duration-300 ease-in-out"
-              href="#!"
               data-mdb-ripple="true"
               data-mdb-ripple-color="primary"
+              to={'exercises'}
             >
               Ver Exercícios Disponíveis
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
