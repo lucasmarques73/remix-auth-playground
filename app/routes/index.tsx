@@ -17,11 +17,8 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function Index() {
-  const { error } = useLoaderData<LoaderData>();
-  console.log({ error });
   return (
     <Layout>
-      {error ? <div>{error.message}</div> : null}
       <Home />
     </Layout>
   );
