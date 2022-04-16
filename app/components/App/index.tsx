@@ -3,7 +3,7 @@ import { SideBar } from "../SideBar";
 
 export function App() {
   return (
-    <div className="flex flex-grow flex-col">
+    <div className="flex flex-grow">
       <SideBar />
       <Outlet />
     </div>
