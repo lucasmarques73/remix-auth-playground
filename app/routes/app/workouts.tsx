@@ -1,4 +1,5 @@
 import { LoaderFunction } from "remix";
+import { Workouts } from "~/components/Workouts";
 import { isAuthenticated } from "~/services/auth.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -6,7 +7,5 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function Screen() {
-  return (
-    <h1 className="w-full">Treinos</h1>
-  );
+  return <Workouts />;
 }
