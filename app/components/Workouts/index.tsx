@@ -1,4 +1,4 @@
-import { Form } from "remix";
+import { Link } from "remix";
 import { WorkoutListItem } from "../WorkoutListItem";
 
 const workoutItems = Array(5).fill({
@@ -17,7 +17,7 @@ export function Workouts() {
         </h1>
       </div>
 
-      <div className="overflow-x-auto shadow-md rounded-md">
+      <div className="w-full overflow-x-auto shadow-md rounded-md">
         <div className="flex items-center justify-between h-20 my-50">
           <div className="p-4">
             <label htmlFor="table-search" className="sr-only">
@@ -41,18 +41,19 @@ export function Workouts() {
               <input
                 type="text"
                 id="table-search"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-sky-700 w-80 pl-10 p-2.5"
                 placeholder="Buscar Treino"
               />
             </div>
           </div>
-          <Form>
-            <button className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-sky-700 hover:bg-sky-800">
-              Novo Treino
-            </button>
-          </Form>
+          <Link
+            to="new"
+            className="mr-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-sky-700 hover:bg-sky-800"
+          >
+            Novo Treino
+          </Link>
         </div>
-        <table className="text-sm">
+        <table className="w-full text-sm">
           <thead className="text-xs uppercase text-white bg-sky-700">
             <tr>
               <th scope="col" className="px-6 py-3">

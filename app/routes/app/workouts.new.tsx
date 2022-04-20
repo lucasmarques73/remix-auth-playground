@@ -1,6 +1,5 @@
 import { LoaderFunction } from "remix";
-import { App } from "~/components/App";
-import { Layout } from "~/components/Layout";
+import { WorkoutForm } from "~/components/WorkoutForm";
 import { isAuthenticated } from "~/services/auth.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -8,9 +7,5 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function () {
-  return (
-    <Layout>
-      <App />
-    </Layout>
-  );
+  return <WorkoutForm />;
 }

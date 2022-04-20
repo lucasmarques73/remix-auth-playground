@@ -16,7 +16,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   return json<LoaderData>({ error });
 };
 
-export default function Index() {
+export default function () {
   return (
     <Layout>
       <Home />

@@ -5,10 +5,10 @@ export const loader: LoaderFunction = async ({ request }) => {
   return isAuthenticated(request);
 };
 
-export default function Screen() {
+export default function () {
   return (
-    <div className="w-full flex justify-center items-center">
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="w-full flex justify-center items-center flex-grow">
+      <div className="w-full relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

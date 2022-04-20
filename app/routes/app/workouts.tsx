@@ -6,6 +6,6 @@ export const loader: LoaderFunction = async ({ request }) => {
   return isAuthenticated(request);
 };
 
-export default function Screen() {
+export default function () {
   return <Workouts />;
 }
