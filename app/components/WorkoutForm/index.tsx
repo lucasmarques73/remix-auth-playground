@@ -1,4 +1,4 @@
-import { Form } from "remix";
+import { Form, Link } from "remix";
 
 export function WorkoutForm() {
   return (
@@ -70,11 +70,18 @@ export function WorkoutForm() {
                 </div>
               </div>
             </div>
+            <hr />
           </div>
           <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <Link
+              to="/app/workouts"
+              className="inline-flex mr-2 justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700"
+            >
+              Cancelar
+            </Link>
             <button
               type="submit"
-              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-700"
+              className="inline-flex ml-2 justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-700"
             >
               Salvar
             </button>
